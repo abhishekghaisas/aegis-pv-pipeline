@@ -1,0 +1,93 @@
+:: loading settings :: url = jar:file:/Users/ghaisas.a/Desktop/Projects/aegis-pv-pipeline/venv/lib/python3.9/site-packages/pyspark/jars/ivy-2.5.1.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /Users/ghaisas.a/.ivy2/cache
+The jars for the packages stored in: /Users/ghaisas.a/.ivy2/jars
+org.apache.spark#spark-sql-kafka-0-10_2.12 added as a dependency
+io.delta#delta-core_2.12 added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-df6876e2-b2c2-4350-be17-6c9f70411f8a;1.0
+	confs: [default]
+	found org.apache.spark#spark-sql-kafka-0-10_2.12;3.4.1 in central
+	found org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.4.1 in central
+	found org.apache.kafka#kafka-clients;3.3.2 in central
+	found org.lz4#lz4-java;1.8.0 in central
+	found org.xerial.snappy#snappy-java;1.1.10.1 in central
+	found org.slf4j#slf4j-api;2.0.6 in central
+	found org.apache.hadoop#hadoop-client-runtime;3.3.4 in central
+	found org.apache.hadoop#hadoop-client-api;3.3.4 in central
+	found commons-logging#commons-logging;1.1.3 in central
+	found com.google.code.findbugs#jsr305;3.0.0 in central
+	found org.apache.commons#commons-pool2;2.11.1 in central
+	found io.delta#delta-core_2.12;2.4.0 in central
+	found io.delta#delta-storage;2.4.0 in central
+	found org.antlr#antlr4-runtime;4.9.3 in central
+:: resolution report :: resolve 338ms :: artifacts dl 9ms
+	:: modules in use:
+	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+	commons-logging#commons-logging;1.1.3 from central in [default]
+	io.delta#delta-core_2.12;2.4.0 from central in [default]
+	io.delta#delta-storage;2.4.0 from central in [default]
+	org.antlr#antlr4-runtime;4.9.3 from central in [default]
+	org.apache.commons#commons-pool2;2.11.1 from central in [default]
+	org.apache.hadoop#hadoop-client-api;3.3.4 from central in [default]
+	org.apache.hadoop#hadoop-client-runtime;3.3.4 from central in [default]
+	org.apache.kafka#kafka-clients;3.3.2 from central in [default]
+	org.apache.spark#spark-sql-kafka-0-10_2.12;3.4.1 from central in [default]
+	org.apache.spark#spark-token-provider-kafka-0-10_2.12;3.4.1 from central in [default]
+	org.lz4#lz4-java;1.8.0 from central in [default]
+	org.slf4j#slf4j-api;2.0.6 from central in [default]
+	org.xerial.snappy#snappy-java;1.1.10.1 from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   14  |   0   |   0   |   0   ||   14  |   0   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-df6876e2-b2c2-4350-be17-6c9f70411f8a
+	confs: [default]
+	0 artifacts copied, 14 already retrieved (0kB/8ms)
+26/05/19 11:23:40 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/05/19 11:23:41 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+26/05/19 11:23:45 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+26/05/19 11:23:45 WARN AdminClientConfig: These configurations '[key.deserializer, value.deserializer, enable.auto.commit, max.poll.records, auto.offset.reset]' were supplied but are not used yet.
+26/05/19 11:23:45 ERROR MicroBatchExecution: Query [id = a544e205-db8a-4ae6-8237-83dde006b51d, runId = a9023d0d-7e03-453c-8c95-50afda913176] terminated with error
+java.lang.AssertionError: assertion failed: Concurrent update to the log. Multiple streaming jobs detected for 2447
+	at scala.Predef$.assert(Predef.scala:223)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.markMicroBatchStart(MicroBatchExecution.scala:762)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$13(MicroBatchExecution.scala:534)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:411)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:409)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$constructNextBatch$1(MicroBatchExecution.scala:533)
+	at scala.runtime.java8.JFunction0$mcZ$sp.apply(JFunction0$mcZ$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.withProgressLocked(MicroBatchExecution.scala:802)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.constructNextBatch(MicroBatchExecution.scala:473)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$2(MicroBatchExecution.scala:266)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken(ProgressReporter.scala:411)
+	at org.apache.spark.sql.execution.streaming.ProgressReporter.reportTimeTaken$(ProgressReporter.scala:409)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.reportTimeTaken(StreamExecution.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:247)
+	at org.apache.spark.sql.execution.streaming.ProcessingTimeExecutor.execute(TriggerExecutor.scala:67)
+	at org.apache.spark.sql.execution.streaming.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:237)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:306)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:827)
+	at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runStream(StreamExecution.scala:284)
+	at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:207)
+🔌 Connecting PySpark Stream to local Kafka broker (localhost:9092)...
+🔒 Silver Layer HIPAA sanitization rules actively compiled.
+💾 Streaming clean data into local Delta Lake transaction sink...
+Traceback (most recent call last):
+  File "/Users/ghaisas.a/Desktop/Projects/aegis-pv-pipeline/src/transformers/silver_scrubber.py", line 79, in <module>
+    execute_streaming_pipeline()
+  File "/Users/ghaisas.a/Desktop/Projects/aegis-pv-pipeline/src/transformers/silver_scrubber.py", line 75, in execute_streaming_pipeline
+    query.awaitTermination()
+  File "/Users/ghaisas.a/Desktop/Projects/aegis-pv-pipeline/venv/lib/python3.9/site-packages/pyspark/sql/streaming/query.py", line 201, in awaitTermination
+    return self._jsq.awaitTermination()
+  File "/Users/ghaisas.a/Desktop/Projects/aegis-pv-pipeline/venv/lib/python3.9/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+  File "/Users/ghaisas.a/Desktop/Projects/aegis-pv-pipeline/venv/lib/python3.9/site-packages/pyspark/errors/exceptions/captured.py", line 175, in deco
+    raise converted from None
+pyspark.errors.exceptions.captured.StreamingQueryException: [STREAM_FAILED] Query [id = a544e205-db8a-4ae6-8237-83dde006b51d, runId = a9023d0d-7e03-453c-8c95-50afda913176] terminated with exception: assertion failed: Concurrent update to the log. Multiple streaming jobs detected for 2447

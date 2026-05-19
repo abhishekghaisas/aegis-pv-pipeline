@@ -1,0 +1,12 @@
+# Exclude local virtual environment binaries
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# Exclude heavy local storage data chunks and streaming checkpoints
+storage/
+.ipynb_checkpoints/
+
+# Exclude local MLflow system track binaries
+mlruns/
